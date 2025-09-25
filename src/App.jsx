@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 function App() {
   return (
@@ -22,6 +24,12 @@ function App() {
 
       {/* Blog */}
       <Blog />
+
+      {/* Contact */}
+      <Contact />
+
+      {/* Floating WhatsApp */}
+      <FloatingWhatsApp />
     </div>
   );
 }
