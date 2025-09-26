@@ -1,45 +1,79 @@
-import React from "react";
-import { Link } from "react-scroll";
-import Logo from "../assets/logo.png";
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+
+const navLinks = [
+  { name: "Home", href: "#" },
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Blog", href: "#blog" },
+  { name: "Contact", href: "#contact" },
+];
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="fixed w-full bg-gray-900/80 backdrop-blur-md z-50">
-      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center">
-          {Logo && <img src={Logo} alt="Logo" className="w-12 h-12 mr-3" />}
-          <span className="text-white font-bold text-xl">Solomough</span>
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7 }}
+      className="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-md z-50 shadow-md"
+    >
+      <div className="container mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <a href="#" className="flex items-center space-x-2">
+          <img
+            src="/src/assets/logo.png"
+            alt="Logo"
+            className="w-10 h-10 rounded-full"
+          />
+          <span className="font-bold text-xl">Solomough</span>
+        </a>
+
+        {/* Desktop Links */}
+        <div className="hidden md:flex space-x-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-gray-200 hover:text-white transition"
+            >
+              {link.name}
+            </a>
+          ))}
         </div>
 
-        <ul className="hidden md:flex space-x-6 text-white font-medium">
-          <li>
-            <Link to="hero" smooth duration={500}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="about" smooth duration={500}>
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="projects" smooth duration={500}>
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link to="blog" smooth duration={500}>
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link to="contact" smooth duration={500}>
-              Contact
-            </Link>
-          </li>
-        </ul>
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-gray-200"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
-    </nav>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden bg-black/90 px-6 py-4 space-y-4"
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="block text-gray-200 hover:text-white transition"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
+        </motion.div>
+      )}
+    </motion.nav>
   );
 }
 
