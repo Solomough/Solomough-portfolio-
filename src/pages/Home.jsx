@@ -1,20 +1,18 @@
 import React from "react";
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Projects from "../components/Projects";
-import BlogPreview from "../components/BlogPreview";
+import Portfolio from "../components/Portfolio";
 import Contact from "../components/Contact";
 
-function Home() {
+const Home = () => {
   return (
-    <>
+    <main>
       <Hero />
       <About />
-      <Projects />
-      <BlogPreview />
+      <Portfolio />
       <Contact />
-    </>
+    </main>
   );
-}
+};
 
 export default Home;
