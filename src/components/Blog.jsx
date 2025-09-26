@@ -26,7 +26,7 @@ const blogPosts = [
   },
 ];
 
-const Blog = () => {
+function Blog() {
   return (
     <section id="blog" className="py-20 px-6 bg-gray-900 text-gray-100">
       <div className="max-w-6xl mx-auto">
@@ -70,6 +70,6 @@ const Blog = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Blog;
