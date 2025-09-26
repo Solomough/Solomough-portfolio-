@@ -1,11 +1,32 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { PenLine } from "lucide-react";
-import { getPosts } from "../utils/loadPosts";
+
+const blogPosts = [
+  {
+    title: "Faith + Tech = Exceptional",
+    date: "September 2025",
+    excerpt:
+      "Exploring how faith-driven innovation is shaping the future of Web3, AI, and education — bridging spirituality and technology.",
+    link: "#",
+  },
+  {
+    title: "Out of Darkness into Light",
+    date: "August 2025",
+    excerpt:
+      "A personal reflection on the journey of purpose, and how divine wisdom guides excellence in every aspect of life and career.",
+    link: "#",
+  },
+  {
+    title: "Building The Ark Academy",
+    date: "July 2025",
+    excerpt:
+      "Behind the scenes of creating a modern school management platform that empowers students, parents, and educators.",
+    link: "#",
+  },
+];
 
 function Blog() {
-  const posts = getPosts();
-
   return (
     <section id="blog" className="py-20 px-6 bg-gray-900 text-gray-100">
       <div className="max-w-6xl mx-auto">
@@ -20,7 +41,7 @@ function Blog() {
         </motion.h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
+          {blogPosts.map((post, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -38,7 +59,7 @@ function Blog() {
               </h3>
               <p className="text-gray-400 mb-4">{post.excerpt}</p>
               <a
-                href={`/blog/${post.slug}`}
+                href={post.link}
                 className="text-indigo-400 hover:text-indigo-300 font-medium"
               >
                 Read More →
