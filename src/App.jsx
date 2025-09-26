@@ -1,40 +1,24 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Blog from "./components/Blog";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import Home from "./pages/Home";
+import BlogPage from "./pages/BlogPage";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
-      {/* Navbar */}
-      <Navbar />
-
-      {/* Hero */}
-      <Hero />
-
-      {/* About */}
-      <About />
-
-      {/* Projects */}
-      <Projects />
-
-      {/* Blog */}
-      <Blog />
-
-      {/* Contact */}
-      <Contact />
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating WhatsApp */}
-      <FloatingWhatsApp />
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<BlogPage />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
