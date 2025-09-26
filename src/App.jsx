@@ -8,34 +8,19 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
-function App() {
+const App = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
-      {/* Navbar */}
       <Navbar />
-
-      {/* Hero */}
       <Hero />
-
-      {/* About */}
       <About />
-
-      {/* Projects */}
       <Projects />
-
-      {/* Blog */}
       <Blog />
-
-      {/* Contact */}
       <Contact />
-
-      {/* Footer */}
       <Footer />
-
-      {/* Floating WhatsApp */}
       <FloatingWhatsApp />
     </div>
   );
-}
+};
 
 export default App;
