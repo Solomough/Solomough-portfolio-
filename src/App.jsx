@@ -5,6 +5,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Blog from "./components/Blog";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
 
       {/* Contact */}
       <Contact />
+
+      {/* Footer */}
+      <Footer />
 
       {/* Floating WhatsApp */}
       <FloatingWhatsApp />
